@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'TitleFont';
+  src: url('/public/Rase-GPL-Outline.otf') format('truetype');
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212; 
+  color: #ffffff; 
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-family: 'TitleFont', sans-serif;
+}
+
+.navbar-button {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-button button {
+  padding: 10px 15px;
+  background-color: #6f6f6f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar-button button:hover {
+  background-color: #0271e7;
+}
+
+.account-info, .borrow-market, .borrow, .supply {
+  background: #1e1e1e;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #333; 
+  padding: 8px;
+}
+
+th {
+  background-color: #333;
+  color: #ffffff; 
+}
+
+td {
+  background-color: #1e1e1e;
+  color: #ffffff; 
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333;
+  color: #ffffff; 
+  border: 1px solid #555; 
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color:  #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a4a7aa;
+}
+
+input::placeholder {
+  color: #aaaaaa;
+}
+
+.supply {
+  background: #1e1e1e; /* Dark background for the supply section */
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.supply-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.supply-form input, .supply-form select {
+  width: 100%;
+  padding: 10px;
+  background-color: #333; /* Dark input background */
+  color: #ffffff; /* Light text color */
+  border: 1px solid #555; /* Darker border */
+  border-radius: 5px;
+}
+
+.supply-form input::placeholder {
+  color: #aaaaaa; /* Light placeholder text color */
+}
+
+.supply-button {
+  grid-column: span 2;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
