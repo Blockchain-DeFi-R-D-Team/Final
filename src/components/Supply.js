@@ -21,9 +21,9 @@ const Supply = ({ handleSupply }) => {
   const updateConvertedAmount = (amount, receiveToken) => {
     let rate = 1;
     if (receiveToken === 'Palcoin') {
-      rate = 1; // 1 USDC = 1 Palcoin
+      rate = 0.8; // 1 USDC = 1 Palcoin
     } else if (receiveToken === 'PSR') {
-      rate = 1; // 1 USDC = 1 PSR
+      rate = 0.8; // 1 USDC = 1 PSR
     }
     setConvertedAmount(amount * rate);
   };
@@ -64,13 +64,13 @@ const Supply = ({ handleSupply }) => {
           />
         </div>
         <div className="form-group">
-          <label>Receive Token:</label>
+          <label>Token:</label>
           <select value={receiveToken} onChange={handleReceiveTokenChange}>
             <option value="Palcoin">Palcoin</option>
             <option value="PSR">PSR</option>
           </select>
         </div>
-        <button type="submit" className="supply-button">Supply</button>
+        <button type="submit" className="supply-button">Deposit</button>
       </form>
     </div>
   );

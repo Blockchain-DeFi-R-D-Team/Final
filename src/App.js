@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import Navbar from './components/Navbar';
 import AccountInfo from './components/AccountInfo';
-import BorrowMarket from './components/BorrowMarket';
+import PositionSummary from './components/PositionSummary';
 import Borrow from './components/Borrow';
 import Supply from './components/Supply';
 
@@ -99,42 +99,50 @@ const App = () => {
       }
     ];
 
-    const tokenContract = new web3.eth.Contract(erc20Abi, usdcAddress);
+    const tokenAddress = token === 'USDC' ? usdcAddress : null;
+    const receiveTokenAddress = receiveToken === 'Palcoin' ? palcoinAddress : psrAddress;
 
-    if (token === 'USDC') {
-      const amountInWei = web3.utils.toWei(amount, 'mwei'); // USDC has 6 decimals
-      await tokenContract.methods.transfer('0xYourContractAddress', amountInWei).send({ from: account });
-    } else if (token === 'ETH') {
-      const amountInWei = web3.utils.toWei(amount, 'ether');
-      await web3.eth.sendTransaction({ from: account, to: '0xYourContractAddress', value: amountInWei });
+    if (tokenAddress && receiveTokenAddress) {
+      const tokenContract = new web3.eth.Contract(erc20Abi, tokenAddress);
+      const receiveTokenContract = new web3.eth.Contract(erc20Abi, receiveTokenAddress);
+
+      const amountInWei = web3.utils.toWei(amount.toString(), 'ether');
+
+      try {
+        await tokenContract.methods.transfer(receiveTokenAddress, amountInWei).send({ from: account });
+        alert('Supply transaction successful');
+      } catch (error) {
+        console.error('Supply transaction failed:', error);
+        alert('Supply transaction failed');
+      }
     }
-
-    // Depending on the selected receiveToken, call appropriate contract methods
-    if (receiveToken === 'Palcoin') {
-      // Logic to mint or transfer Palcoin to the user
-    } else if (receiveToken === 'PSR') {
-      // Logic to mint or transfer PSR to the user
-    }
-
-    // Optionally fetch updated balances after the transaction
-    fetchBalances(web3, account);
   };
 
+  const handleRedeem = async (token, amount, psrToPay) => {
+    // Implement the logic for redeeming the token here.
+    console.log(`Redeeming ${amount} ${token}, and paying ${psrToPay} PSR.`);
+    // Here you would interact with your contracts to handle the redeem transaction
+  };
+  
   return (
-    <div className="app-container">
-      <Navbar account={account} connectWallet={connectWallet} />
+    <div className="App">
+      <Navbar connectWallet={connectWallet} account={account} />
       <AccountInfo
         account={account}
         etherBalance={etherBalance}
         usdcBalance={usdcBalance}
         palcoinBalance={palcoinBalance}
         psrBalance={psrBalance}
+        handleRedeem={handleRedeem}
       />
       <div className="markets">
         <Supply handleSupply={handleSupply} />
-        <BorrowMarket />
+        <Borrow account={account} web3={web3} psrBalance={psrBalance} />
+        <PositionSummary
+        account={account}
+        web3={web3}
+      />
       </div>
-      <Borrow />
     </div>
   );
 };
