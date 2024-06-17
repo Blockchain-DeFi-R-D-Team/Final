@@ -1,0 +1,76 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getPerson",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "age",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "num",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct StructExample.Person",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"test.sol": "StructExample"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"test.sol": {
+			"keccak256": "0x0ef4a6f6017954edfcc6b0b510da62d4f55c482a1d200a5e2cb421eeb281edcc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://12d7e0762cdb4ee3b2beacdefa4e7f56c47a8360527fdd7fec8c8a1372cddd74",
+				"dweb:/ipfs/QmSBEk7cDCabykrSbezG9zayorYguFHD9W1xfo3hknKpa7"
+			]
+		}
+	},
+	"version": 1
+}

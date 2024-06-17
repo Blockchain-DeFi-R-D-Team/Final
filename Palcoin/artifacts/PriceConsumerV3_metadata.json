@@ -1,0 +1,79 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "getLatestPrice",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"constructor": {
+					"notice": "Network: Mainnet Aggregator: ETH/USDT Address: Find the correct address from Chainlink documentation"
+				},
+				"getLatestPrice()": {
+					"notice": "Returns the latest price"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"test.sol": "PriceConsumerV3"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0xfe4e8bb4861bb3860ba890ab91a3b818ec66e5a8f544fb608cfcb73f433472cd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://644cff84052e1e82b5bb502b2a46e8f142a62b0db4cd9b38200798ba8373c6f7",
+				"dweb:/ipfs/QmTa99QHrJBn3SXDizquPBUiTxVCNKQrHgaWJhuds5Sce2"
+			]
+		},
+		"test.sol": {
+			"keccak256": "0xfb0aed6b6b685c0a41e36b75be6478869e5531ead9554aa112d7aa14e1c26431",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9f889dcf4718de919259f9cfeb604308dd45bac1970eb831c576ef3eece15c91",
+				"dweb:/ipfs/QmT2SAQMvpbP9M3p1oyjqwE7kXqiEZP888wWLH7vLGhT45"
+			]
+		}
+	},
+	"version": 1
+}

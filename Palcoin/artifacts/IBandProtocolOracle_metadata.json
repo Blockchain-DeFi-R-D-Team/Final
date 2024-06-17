@@ -1,0 +1,160 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "base",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "quote",
+						"type": "string"
+					}
+				],
+				"name": "getReferenceData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "rate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdatedBase",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdatedQuote",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Palcoin.sol": "IBandProtocolOracle"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52ba335cfac30bfe71e357e6f80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5703ccdeb7b1d685e375ed719117e9edf2ab4bc544f24f23b0d50ec82257229",
+				"dweb:/ipfs/QmTdwkbQq7owpCiyuzE7eh5LrD2ddrBCZ5WHVsWPi1RrTS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ad7c8d4d08938c8dfc43d75a148863fb324b80cf53e0a36f7e5a4ac29008850",
+				"dweb:/ipfs/QmcrhfPgVNf5mkdhQvy1pMv51TFokD3Y4Wa5WZhFqVh8UV"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"Palcoin.sol": {
+			"keccak256": "0x233e5ecf5ad4923b3e2ad67798d5e99d4b5a17bcad5f5f8417a4ba5ac265f167",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://474d1f3a1f9d6cc414dc9611e6f39e87802f914f08a184d230a5b96b8f9591a3",
+				"dweb:/ipfs/QmbnS96euL3GGPYLhQuL4FQymZzeXgV4FVpi6wgufkGt6k"
+			]
+		},
+		"Palcoin_AMM.sol": {
+			"keccak256": "0x1e27d49d44410a4b5eb0d6c68e442e03ed8e797e3255010c940a617b3b9fdd38",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://02399f59c41fde13a4e3e12d7dc18b5c43e06a0d0f5b4c57ba9b830c5667942f",
+				"dweb:/ipfs/QmcU4mwUnJzzapQvBWBaDCzoPr5LE96tG7Bk8kzRSwbkd4"
+			]
+		},
+		"Palcoin_PBR.sol": {
+			"keccak256": "0x5282d225fdec26e1d99634f8997a843557dfd83e69ef84d83bb36e37a4d2b720",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c012735ca0e9edceef05e5e03722a258984f694a0dfa27028d58c6646720aaa1",
+				"dweb:/ipfs/Qmccbgx9zNyeMaT8FP6EMJAUZb14JETU4f4p4cM87zCpso"
+			]
+		},
+		"Palcoin_PGT.sol": {
+			"keccak256": "0xf82cb780a4044045b3b7dbc30cf792dabba99c328ea71ee6500c3d4f212e71a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://330697891f74f3852f2bd71c06ed99789c09056d9f2a9f73d407e9bc0e0011ff",
+				"dweb:/ipfs/Qmf4wG2qGBax3N1BMhya9CSrPHnk6KPJiiE9RYRoSazgYq"
+			]
+		},
+		"Palcoin_PLC.sol": {
+			"keccak256": "0x46c048c38a97f4ab0370259321c66ca15d38ec7166978bf0cb8e26a6efe9afdb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3b3f58d0363d394ed629ccec645a6682f1d7ade6ec85f51462d879ca94687b8f",
+				"dweb:/ipfs/QmPLAmHNmDwLCv9WxQMz6hqDSuvZNTpru6YJqoSwVNC4kC"
+			]
+		},
+		"Palcoin_TestAgent.sol": {
+			"keccak256": "0x707762acd79113c2b47f6dfd24d96261dc56ef825fe8dfd6681d358731281a3a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3db8c9ace0e91b8d219379872f322418ecd767fb38adac8f2b60b0893338e4d0",
+				"dweb:/ipfs/QmNe5UB42BJq8t2sVXWG3RxkPHzB9b5dqjdCvYjLzKW2fZ"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,417 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ETH_collatoral_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PLC_debt_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PBR_",
+						"type": "uint256"
+					}
+				],
+				"name": "Borrow",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "Debt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ETH_collatoral",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PLC_debt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "BeginDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ExpireDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PBR_remain",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MaxLiquidationAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "HealthyFactor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "Liquidatable",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "DebtPackageShow",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "Name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MinCollatoralRatio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MinDebtFloor",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MaxDebtCeil",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "LiquidationPanalty",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "InterestRate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "LiquidationRatio",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ParuBorrowingRight.Debt_package",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "GetPBRPLCprice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PAMM",
+				"outputs": [
+					{
+						"internalType": "contract Palcoin_ThreeAssetAMM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PBR",
+				"outputs": [
+					{
+						"internalType": "contract PBR_token",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PGT",
+				"outputs": [
+					{
+						"internalType": "contract PGT_token",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PLC",
+				"outputs": [
+					{
+						"internalType": "contract PLC_token",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "Product",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "Name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MinCollatoralRatio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MinDebtFloor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MaxDebtCeil",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "LiquidationPanalty",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "InterestRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "LiquidationRatio",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEthUsdPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Palcoin.sol": "ParuBorrowingRight"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52ba335cfac30bfe71e357e6f80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5703ccdeb7b1d685e375ed719117e9edf2ab4bc544f24f23b0d50ec82257229",
+				"dweb:/ipfs/QmTdwkbQq7owpCiyuzE7eh5LrD2ddrBCZ5WHVsWPi1RrTS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ad7c8d4d08938c8dfc43d75a148863fb324b80cf53e0a36f7e5a4ac29008850",
+				"dweb:/ipfs/QmcrhfPgVNf5mkdhQvy1pMv51TFokD3Y4Wa5WZhFqVh8UV"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"Palcoin.sol": {
+			"keccak256": "0x2836c0108d99e7e140734d27c3ac3e219d31e49bb894f2401685ad85a3ad005d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5f2fa37c6fa31f7450463fb316e9726921aa091f20e4c9e35eedf46393ee6220",
+				"dweb:/ipfs/QmX2RJTKjJXMz6ZvHoaAbvBmbp64PtKZZtYSSK2kfZEk8F"
+			]
+		},
+		"Palcoin_AMM.sol": {
+			"keccak256": "0x2e6d7d12305221d3f6c905f495087ef65d9d5849d86c120c86a6a5fd9e67f75e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dbf0d3a4ff4f1ee1db897ba663d2dfbb43b77d1f251ca118a33ab7ec527f5799",
+				"dweb:/ipfs/QmUzLKrStLw7itABV5hz77NUAbK3rvhuuxtWGxj7zHa9Qa"
+			]
+		},
+		"Palcoin_PBR.sol": {
+			"keccak256": "0x724e50b85f83451add37c39dc8077dfe035b44a3ded4f46f57e779eb40dccad9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ee6e4ca337d494c07721ad45d8c9c7f71ef806c7d91caa26bd420ffe503a80a",
+				"dweb:/ipfs/QmZNbq8TYBN9e6mfJBqZgUvWZGiGsa3JCojbQ8iwW3zsav"
+			]
+		},
+		"Palcoin_PGT.sol": {
+			"keccak256": "0x2d8acbf9f28e6059be22307507241f669637d3c91ac8e1b96688a4254515bdbf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://db56a251d6b7e723d102e753264295e1d350ffdda6b34f322e0a6d357b93dee0",
+				"dweb:/ipfs/QmXYVF1dLcbeYJadHASURQjnFEosNuczPGPuB833WQdhjo"
+			]
+		},
+		"Palcoin_PLC.sol": {
+			"keccak256": "0x8c59fadf4c3dfe0bd76fbbbe4998e2ca0cecd30435541ec2e56efdabe21e269b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f4c7ec3ec9b86b72517337253a22b78d9f17cee7e18dae8556b5858bb1508c6b",
+				"dweb:/ipfs/QmWQRxu6CRigiQPcQh8b6w46y9NyLN4gTYfA1yAvUkNBNc"
+			]
+		}
+	},
+	"version": 1
+}

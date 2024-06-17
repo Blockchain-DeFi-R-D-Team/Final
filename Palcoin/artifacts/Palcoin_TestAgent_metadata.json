@@ -1,0 +1,451 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_PLC",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_PBR",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_PGT",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_PAMM",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "PAMM",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PBR",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PGT",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PLC",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ShowBalancePBR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ShowBalancePGT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ShowBalancePLC",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PLC_InAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PBR_InAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PGT_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_AddLiquidity",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PBR_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_PBR_for_PLC",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PGT_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_PGT_for_PBR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PGT_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_PGT_for_PLC",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PGT_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_PGT_for_PLCPBR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PLC_InAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PBR_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_PLCPLB_for_PGT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "PLC_InAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_PLC_for_PBR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "LP_token",
+						"type": "uint256"
+					}
+				],
+				"name": "TestAMM_RemoveLiquidity",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "amm",
+				"outputs": [
+					{
+						"internalType": "contract Palcoin_ThreeAssetAMM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Palcoin_TestAgent.sol": "Palcoin_TestAgent"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52ba335cfac30bfe71e357e6f80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5703ccdeb7b1d685e375ed719117e9edf2ab4bc544f24f23b0d50ec82257229",
+				"dweb:/ipfs/QmTdwkbQq7owpCiyuzE7eh5LrD2ddrBCZ5WHVsWPi1RrTS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ad7c8d4d08938c8dfc43d75a148863fb324b80cf53e0a36f7e5a4ac29008850",
+				"dweb:/ipfs/QmcrhfPgVNf5mkdhQvy1pMv51TFokD3Y4Wa5WZhFqVh8UV"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"Palcoin_AMM.sol": {
+			"keccak256": "0x22f050145e8ce2b1d00d2ec901abc6c1af26daa30b46334baed83014d7b4e913",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5c6c02fd4f357a33e6ab88cd291f3852a619953df4637da42ef47999db47b44b",
+				"dweb:/ipfs/QmTaJ9fyjPZpXu7guiQURWeew6ZFzf6j7DS4fRT5o7kjCc"
+			]
+		},
+		"Palcoin_PBR.sol": {
+			"keccak256": "0x5282d225fdec26e1d99634f8997a843557dfd83e69ef84d83bb36e37a4d2b720",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c012735ca0e9edceef05e5e03722a258984f694a0dfa27028d58c6646720aaa1",
+				"dweb:/ipfs/Qmccbgx9zNyeMaT8FP6EMJAUZb14JETU4f4p4cM87zCpso"
+			]
+		},
+		"Palcoin_PGT.sol": {
+			"keccak256": "0xf82cb780a4044045b3b7dbc30cf792dabba99c328ea71ee6500c3d4f212e71a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://330697891f74f3852f2bd71c06ed99789c09056d9f2a9f73d407e9bc0e0011ff",
+				"dweb:/ipfs/Qmf4wG2qGBax3N1BMhya9CSrPHnk6KPJiiE9RYRoSazgYq"
+			]
+		},
+		"Palcoin_PLC.sol": {
+			"keccak256": "0x46c048c38a97f4ab0370259321c66ca15d38ec7166978bf0cb8e26a6efe9afdb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3b3f58d0363d394ed629ccec645a6682f1d7ade6ec85f51462d879ca94687b8f",
+				"dweb:/ipfs/QmPLAmHNmDwLCv9WxQMz6hqDSuvZNTpru6YJqoSwVNC4kC"
+			]
+		},
+		"Palcoin_TestAgent.sol": {
+			"keccak256": "0x10b978a8f14ce1e8c22781cd0b76eb87971eb322f69ab3427b6250636969709b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b314248de507c87876dd7522d402372de0890037af22839293c52559e9ef6c72",
+				"dweb:/ipfs/QmWxssfgwaTjJ4ds1uxi7T6bkcbjXzeSQNXPhMiD5PMmUX"
+			]
+		},
+		"library_SafeMath256.sol": {
+			"keccak256": "0x40a795462cbc8ea383aa02e06698aa6c55df48896ebc7a5f41ce64c0391a4583",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://7c1c1e613d1fbe405673551458a092d26e2bc1456b2a81a311c4685d1612e2b0",
+				"dweb:/ipfs/Qmaank88kLCW4sbmemkZQhtmaNpxZ78Dd3LWu3CuAX969G"
+			]
+		}
+	},
+	"version": 1
+}

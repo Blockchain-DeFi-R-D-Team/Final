@@ -1,0 +1,182 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "MsgSender",
+						"type": "address"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "DebtPackageShow",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "Name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MaxDebtRatio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MaxInitDebtRatio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MinDebtFloor",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MaxDebtCeil",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "LiquidationPanalty",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "InterestRate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "LiquidationRatio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "MinDuration",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Palcoin_ProductManager.Debt_package",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "Product",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "Name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MaxDebtRatio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MaxInitDebtRatio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MinDebtFloor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MaxDebtCeil",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "LiquidationPanalty",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "InterestRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "LiquidationRatio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MinDuration",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Palcoin_ProductManager.sol": "Palcoin_ProductManager"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Palcoin_ProductManager.sol": {
+			"keccak256": "0xa9100254b7ec57164bf5f1e8a8e780b53015c8fbbe74ae1fbadf5bd89a54a1a6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2428a039031e7944b64da9128d6ee0b2904b97f4b55829f6d4438ab5412ab571",
+				"dweb:/ipfs/QmUpfuWJBpfU7Rq8oS53w1VJ2XKhHtaF1rnsMaDL9TUaS1"
+			]
+		}
+	},
+	"version": 1
+}

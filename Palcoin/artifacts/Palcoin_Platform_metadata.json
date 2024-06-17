@@ -1,0 +1,367 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "Debt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ETH_collatoral",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PLC_debt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "BeginDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ExpireDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "PBR_remain",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "MaxLiquidationAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "HealthyFactor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "GetPBRPLCprice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_num",
+						"type": "uint256"
+					}
+				],
+				"name": "HashDebtIndex",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PAMM",
+				"outputs": [
+					{
+						"internalType": "contract Palcoin_ThreeAssetAMM",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PBR",
+				"outputs": [
+					{
+						"internalType": "contract PBR_token",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PGT",
+				"outputs": [
+					{
+						"internalType": "contract PGT_token",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PLC",
+				"outputs": [
+					{
+						"internalType": "contract PLC_token",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_PAMM",
+						"type": "address"
+					}
+				],
+				"name": "PammInit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ProductManager",
+				"outputs": [
+					{
+						"internalType": "contract Palcoin_ProductManager",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "TestAgent",
+				"outputs": [
+					{
+						"internalType": "contract Palcoin_TestAgent",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "TestAgentInitialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEthUsdPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Palcoin.sol": "Palcoin_Platform"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52ba335cfac30bfe71e357e6f80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5703ccdeb7b1d685e375ed719117e9edf2ab4bc544f24f23b0d50ec82257229",
+				"dweb:/ipfs/QmTdwkbQq7owpCiyuzE7eh5LrD2ddrBCZ5WHVsWPi1RrTS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ad7c8d4d08938c8dfc43d75a148863fb324b80cf53e0a36f7e5a4ac29008850",
+				"dweb:/ipfs/QmcrhfPgVNf5mkdhQvy1pMv51TFokD3Y4Wa5WZhFqVh8UV"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"Palcoin.sol": {
+			"keccak256": "0xf0d38cfb3f5526d584443146d352624b328080e2f5ff9f4d0f322ef870823a45",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://723b34817dbe968d41c14bcdc465ed54ec1bbb97785dcde896ebc6c9accdcc08",
+				"dweb:/ipfs/QmQukj9o516x1mDoSt8BsdBDHgeXbqt8agVpRqoCekcBva"
+			]
+		},
+		"Palcoin_AMM.sol": {
+			"keccak256": "0xa8d5b3d75bd6bfc1c031b6c9e1e472d3012963960b1476519b966f752e5fafb4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3ed182b3a75ab51cd4a10dc8a4a96ea0b6c7f508032042e4a6f804836f53e412",
+				"dweb:/ipfs/QmWee5Q7jtSngt2Wdf1PrGG7AcV3koRCCvcjm6isn3dTAu"
+			]
+		},
+		"Palcoin_PBR.sol": {
+			"keccak256": "0x5282d225fdec26e1d99634f8997a843557dfd83e69ef84d83bb36e37a4d2b720",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c012735ca0e9edceef05e5e03722a258984f694a0dfa27028d58c6646720aaa1",
+				"dweb:/ipfs/Qmccbgx9zNyeMaT8FP6EMJAUZb14JETU4f4p4cM87zCpso"
+			]
+		},
+		"Palcoin_PGT.sol": {
+			"keccak256": "0xf82cb780a4044045b3b7dbc30cf792dabba99c328ea71ee6500c3d4f212e71a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://330697891f74f3852f2bd71c06ed99789c09056d9f2a9f73d407e9bc0e0011ff",
+				"dweb:/ipfs/Qmf4wG2qGBax3N1BMhya9CSrPHnk6KPJiiE9RYRoSazgYq"
+			]
+		},
+		"Palcoin_PLC.sol": {
+			"keccak256": "0x46c048c38a97f4ab0370259321c66ca15d38ec7166978bf0cb8e26a6efe9afdb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3b3f58d0363d394ed629ccec645a6682f1d7ade6ec85f51462d879ca94687b8f",
+				"dweb:/ipfs/QmPLAmHNmDwLCv9WxQMz6hqDSuvZNTpru6YJqoSwVNC4kC"
+			]
+		},
+		"Palcoin_ProductManager.sol": {
+			"keccak256": "0xa9100254b7ec57164bf5f1e8a8e780b53015c8fbbe74ae1fbadf5bd89a54a1a6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2428a039031e7944b64da9128d6ee0b2904b97f4b55829f6d4438ab5412ab571",
+				"dweb:/ipfs/QmUpfuWJBpfU7Rq8oS53w1VJ2XKhHtaF1rnsMaDL9TUaS1"
+			]
+		},
+		"Palcoin_TestAgent.sol": {
+			"keccak256": "0x707762acd79113c2b47f6dfd24d96261dc56ef825fe8dfd6681d358731281a3a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3db8c9ace0e91b8d219379872f322418ecd767fb38adac8f2b60b0893338e4d0",
+				"dweb:/ipfs/QmNe5UB42BJq8t2sVXWG3RxkPHzB9b5dqjdCvYjLzKW2fZ"
+			]
+		},
+		"library_SafeMath256.sol": {
+			"keccak256": "0x40a795462cbc8ea383aa02e06698aa6c55df48896ebc7a5f41ce64c0391a4583",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://7c1c1e613d1fbe405673551458a092d26e2bc1456b2a81a311c4685d1612e2b0",
+				"dweb:/ipfs/Qmaank88kLCW4sbmemkZQhtmaNpxZ78Dd3LWu3CuAX969G"
+			]
+		}
+	},
+	"version": 1
+}
