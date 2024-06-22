@@ -36,8 +36,17 @@ code {
 }
 
 .navbar-title {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   font-family: 'TitleFont', sans-serif;
+}
+
+.navbar-logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  vertical-align: middle; 
 }
 
 .navbar-button {
@@ -123,40 +132,89 @@ input::placeholder {
 }
 
 .supply-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.form-group {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.form-group label {
-  margin-bottom: 5px;
+.input-group {
+  display: flex;
+  align-items: center;
 }
 
-.supply-form input, .supply-form select {
-  width: 100%;
+.input-group input {
+  flex: 1;
   padding: 10px;
-  background-color: #333; 
-  color: #ffffff; 
-  border: 1px solid #555; 
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
   border-radius: 5px;
 }
 
-.supply-form input::placeholder {
-  color: #aaaaaa; 
+.input-label {
+  margin-left: 10px;
+  white-space: nowrap;
 }
 
-.supply-button {
-  grid-column: span 2;
+.supply-form button {
   padding: 10px;
-  color: white;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.supply-form button:hover {
+  background-color: #0056b3;
+}
+
+.calculated-results {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-content input {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
 }
 
 .position-summary {
@@ -191,41 +249,93 @@ input::placeholder {
   text-align: right;
 }
 
-.borrow-form {
+.exchange {
+  margin: 20px;
+}
+
+.exchange-type {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.exchange-type button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #797979;
+  font-size: 16px;
+}
+
+.exchange-type button:hover {
+  background-color: #6a6a6a;
+}
+
+.amm {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.amm h2 {
+  text-align: center;
+}
+
+.exchange-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
 }
 
-.borrow-form input {
+.exchange-form div {
+  margin-bottom: 15px;
+}
+
+.exchange-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.exchange-form input {
   padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border: 1px solid #555;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.borrow-form button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+.exchange-form button {
+  padding: 10px 20px;
   cursor: pointer;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
-.borrow-form button:hover {
-  background-color: #0056b3;
+.exchange-form button:hover {
+  background-color: #218838;
 }
 
-.psr-warning {
+
+.exchange-form select {
+  padding: 10px;
+  width: 320px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.pbr-warning {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 
-.psr-warning button {
+.pbr-warning button {
   padding: 10px;
   background-color: #007bff;
   color: #fff;
@@ -234,7 +344,7 @@ input::placeholder {
   cursor: pointer;
 }
 
-.psr-warning button:hover {
+.pbr-warning button:hover {
   background-color: #0056b3;
 }
 
