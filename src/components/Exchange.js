@@ -4,25 +4,26 @@ const Exchange = ({ account, web3 }) => {
   const [ammType, setAmmType] = useState('ether-palcoin');
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
   const [output, setOutput] = useState('');
-  const [token1, setToken1] = useState('');
-  const [token2, setToken2] = useState('');
-  const [token3, setToken3] = useState('');
+
   const [exchangeType, setExchangeType] = useState('');
 
   useEffect(() => {
-    if (input1 && token1 && token2) {
+    if (input1) {
       calculateOutput();
     }
-  }, [input1, input2, input3, token1, token2, token3,exchangeType]);
+  }, [input1, input2,exchangeType]);
 
   const calculateOutput = async () => {
     // Fetch the output from the blockchain based on the input values and selected tokens
     // This is a placeholder function. Replace with actual logic.
     let outputFromChain = 0;
     if (ammType === 'ether-palcoin') {
-      outputFromChain = (parseFloat(input1) * 1.5).toFixed(2); // Example conversion for Ether-Palcoin
+      if (exchangeType === 'ether-to-palcoin') {
+        outputFromChain = (parseFloat(input1) * 1.5).toFixed(2); // Example rate
+      } else if (exchangeType === 'palcoin-to-ether') {
+        outputFromChain = (parseFloat(input1) / 1.5).toFixed(2); // Example rate
+      }
     } else {
       // Example conversion for Palcoin-PBR-PGT
       switch (exchangeType) {
@@ -52,7 +53,7 @@ const Exchange = ({ account, web3 }) => {
     }
 
     // Implement the exchange logic with blockchain here
-    alert(`Exchanging ${input1} ${token1} for ${output} ${token2}`);
+
   };
 
   return (
@@ -68,21 +69,28 @@ const Exchange = ({ account, web3 }) => {
           <h2>Ether-Palcoin AMM</h2>
           <div className="exchange-form">
             <div>
-              <label>Input Ether Amount:</label>
+              <label>Exchange Type:</label>
+              <select value={exchangeType} onChange={(e) => setExchangeType(e.target.value)}>
+                <option value="ether-to-palcoin">Ether to Palcoin</option>
+                <option value="palcoin-to-ether">Palcoin to Ether</option>
+              </select>
+            </div>
+            <div>
+              <label>Input Amount:</label>
               <input
                 type="number"
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
-                placeholder="Ether Amount"
+                placeholder="Amount"
               />
             </div>
             <div>
-              <label>Receive Palcoin Amount:</label>
+              <label>Receive Amount:</label>
               <input
                 type="number"
                 value={output}
                 readOnly
-                placeholder="Palcoin Amount"
+                placeholder="Amount"
               />
             </div>
             <button onClick={handleExchange}>Exchange</button>
