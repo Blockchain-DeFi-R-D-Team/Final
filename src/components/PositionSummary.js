@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Web3 from 'web3';
+import addresses from '../utils/addresses'
+import abis from '../utils/abis'
+
 
 const PositionSummary = ({ account, web3 }) => {
   const [etherCollateral, setEtherCollateral] = useState(0);
@@ -11,18 +13,22 @@ const PositionSummary = ({ account, web3 }) => {
     // Replace with actual contract calls to get user's collateral amounts
     const etherCollateralAmount = await getEtherCollateralFromContract(account);
     const usdcCollateralAmount = await getUsdcCollateralFromContract(account);
-
     setEtherCollateral(web3.utils.fromWei(etherCollateralAmount, 'ether'));
     setUsdcCollateral(web3.utils.fromWei(usdcCollateralAmount, 'mwei')); 
   };
 
   const fetchPrices = async () => {
-    // Replace with actual Oracle contract calls
-    const etherPriceFromOracle = await getEtherPriceFromOracle();
-    const usdcPriceFromOracle = await getUsdcPriceFromOracle();
+    try{
+      // Replace with actual Oracle contract calls
+      const etherPriceFromOracle = await getEtherPriceFromOracle();
+      const usdcPriceFromOracle = await getUsdcPriceFromOracle();
 
-    setEtherPrice(etherPriceFromOracle);
-    setUsdcPrice(usdcPriceFromOracle);
+      setEtherPrice(etherPriceFromOracle);
+      setUsdcPrice(usdcPriceFromOracle);
+    }catch(error){
+      console.log(error)
+    }
+
   };
 
   useEffect(() => {
@@ -35,17 +41,22 @@ const PositionSummary = ({ account, web3 }) => {
 
   const getEtherCollateralFromContract = async (account) => {
     // Dummy function - replace with actual contract call
-    return web3.utils.toWei('1', 'ether'); // 1 ETH for example
+    var collateral = await web3.eth.getBalance(account)
+    return collateral; // 1 ETH for example
   };
 
   const getUsdcCollateralFromContract = async (account) => {
     // Dummy function - replace with actual contract call
-    return web3.utils.toWei('1000', 'mwei'); // 1000 USDC for example
+    var contractUSDC = new web3.eth.Contract(abis['ERC20'], addresses['USDC'])
+    var collateral = await contractUSDC.methods.balanceOf(account).call()
+    return collateral; // 1000 USDC for example
   };
 
   const getEtherPriceFromOracle = async () => {
     // Dummy function - replace with actual Oracle contract call
-    return 3000; // $3000 per ETH for example
+    var debtContract = new web3.eth.Contract(abis['DEBT_MANAGER'], addresses['DEBT_MANAGER']);
+    let price = await debtContract.methods.getEthUsdPrice().call()
+    return price/10000; // $3000 per ETH for example
   };
 
   const getUsdcPriceFromOracle = async () => {

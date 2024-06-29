@@ -5,18 +5,30 @@ import AccountInfo from './components/AccountInfo';
 import PositionSummary from './components/PositionSummary';
 import Exchange from './components/Exchange';
 import Supply from './components/Supply';
+import addresses from './utils/addresses';
+import abis from './utils/abis';
+var BN = require('ethers').BigNumber;
+
+async function approve(web3_window, tokenIn, amount, user_address, spender){
+  amount = BN.from(amount).mul(BN.from('1000000000000000000'))
+  var contract = new web3_window.eth.Contract(abis['ERC20'], addresses[tokenIn])
+  let response = await contract.methods.approve(spender, amount).send({
+    from: user_address
+  })
+  return response
+}
 
 const App = () => {
-  const [account, setAccount] = useState(null);
-  const [web3, setWeb3] = useState(null);
-  const [etherBalance, setEtherBalance] = useState(null);
-  const [plcBalance, setPlcBalance] = useState(null);
-  const [pbrBalance, setPbrBalance] = useState(null);
-  const [pgtBalance, setPgtBalance] = useState(null);
+  var [account, setAccount] = useState(null);
+  var [web3, setWeb3] = useState(null);
+  var [etherBalance, setEtherBalance] = useState(0);
+  var [plcBalance, setPlcBalance] = useState(0);
+  var [pbrBalance, setPbrBalance] = useState(0);
+  var [pgtBalance, setPgtBalance] = useState(0);
 
   useEffect(() => {
     if (window.ethereum) {
-      const web3Instance = new Web3(window.ethereum);
+      var web3Instance = new Web3(window.ethereum);
       setWeb3(web3Instance);
 
       window.ethereum.request({ method: 'eth_accounts' })
@@ -31,64 +43,54 @@ const App = () => {
     }
   }, []);
 
-  const connectWallet = async () => {
+  var connectWallet = async () => {
     if (web3) {
       try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         setAccount(accounts[0]);
-        fetchBalances(web3, accounts[0]);
+        // fetchBalances(web3, accounts[0]);
       } catch (error) {
         console.error('Error connecting to MetaMask:', error);
       }
     }
   };
 
-  const fetchBalances = async (web3, account) => {
-    const etherBalance = await web3.eth.getBalance(account);
-    setEtherBalance(web3.utils.fromWei(etherBalance, 'ether'));
+  var fetchBalances = async (web3, account) => {
+    console.log(account)
+    var etherBalance = await web3.eth.getBalance(account);
+    setEtherBalance(parseFloat(web3.utils.fromWei(etherBalance, 'ether')));
+    console.log(parseFloat(web3.utils.fromWei(etherBalance, 'ether')))
 
     // Replace with actual contract addresses and ABI
-    const palcoinAddress = '0xYourPalcoinContractAddress';
-    const pbrAddress = '0xYourPbrContractAddress';
-    const pgtAddress = '0xYourPgtContractAddress';
-    const erc20Abi = [
-      // Only include balanceOf method from ERC-20 ABI
-      {
-        constant: true,
-        inputs: [{ name: "_owner", type: "address" }],
-        name: "balanceOf",
-        outputs: [{ name: "balance", type: "uint256" }],
-        type: "function"
-      }
-    ];
+    var palcoinAddress = addresses['PLC'];
+    var pbrAddress = addresses['PBR'];
+    var pgtAddress = addresses['PGT'];
+    var erc20Abi = abis['ERC20']
 
-    const palcoinContract = new web3.eth.Contract(erc20Abi, palcoinAddress);
-    const pbrContract = new web3.eth.Contract(erc20Abi, pbrAddress);
-    const pgtContract = new web3.eth.Contract(erc20Abi, pgtAddress);
+    var palcoinContract = new web3.eth.Contract(erc20Abi, palcoinAddress);
+    var pbrContract = new web3.eth.Contract(erc20Abi, pbrAddress);
+    var pgtContract = new web3.eth.Contract(erc20Abi, pgtAddress);
 
-    const palcoinBalance = await palcoinContract.methods.balanceOf(account).call();
-    const pbrBalance = await pbrContract.methods.balanceOf(account).call();
-    const pgtBalance = await pgtContract.methods.balanceOf(account).call();
+    var palcoinBalance = await palcoinContract.methods.balanceOf(account).call();
+    var pbrBalance = await pbrContract.methods.balanceOf(account).call();
+    var pgtBalance = await pgtContract.methods.balanceOf(account).call();
 
-    setPlcBalance(web3.utils.fromWei(palcoinBalance, 'PLC'));
-    setPbrBalance(web3.utils.fromWei(pbrBalance, 'PBR'));
-    setPgtBalance(web3.utils.fromWei(pgtBalance, 'PGT'));
+    setPlcBalance(parseFloat(web3.utils.fromWei(palcoinBalance, 'ether')));
+    setPbrBalance(parseFloat(web3.utils.fromWei(pbrBalance, 'ether')));
+    setPgtBalance(parseFloat(web3.utils.fromWei(pgtBalance, 'ether')));
   };
 
-  const handlePurchasePBR = async (purchaseAmount) => {
+  var handlePurchasePBR = async (purchaseAmount) => {
     if (!web3 || !account) return;
-
-    const pbrAddress = '0xYourPsrContractAddress';
-    const pbrAbi = [
-      // Add necessary ABI details for purchasing function
-    ];
-
-    const pbrContract = new web3.eth.Contract(pbrAbi, pbrAddress);
+    var contractAMM = new web3.eth.Contract(abis['THREE_AMM'], addresses['THREE_AMM'])
 
     try {
-      const amountInWei = web3.utils.toWei(purchaseAmount, 'ether');
-      // Add your purchase function call here
-      // await pbrContract.methods.purchase(amountInWei).send({ from: account });
+      var amountInWei = web3.utils.toWei(purchaseAmount, 'ether');
+      await approve(web3, 'PLC', amountInWei, account, addresses['THREE_AMM'])
+      let response1 = await contractAMM.methods.PLC_for_PBR(amountInWei, account).send({
+        from: account
+      })
+      console.log(response1)
       alert('PBR purchase transaction successful');
     } catch (error) {
       console.error('PBR purchase transaction failed:', error);
@@ -116,8 +118,8 @@ const App = () => {
           handlePurchasePBR={handlePurchasePBR} />
         <Exchange account={account} web3={web3} pbrBalance={pbrBalance} />
         <PositionSummary
-        account={account}
-        web3={web3}
+          account={account}
+          web3={web3}
       />
       </div>
     </div>

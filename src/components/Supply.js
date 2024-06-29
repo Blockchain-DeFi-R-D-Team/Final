@@ -1,4 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import addresses from '../utils/addresses'
+import abis from '../utils/abis'
+var BN = require('ethers').BigNumber;
+
+async function approve(web3_window, tokenIn, amount, user_address, spender){
+  amount = BN.from(amount).mul(BN.from('1000000000000000000'))
+  var contract = new web3_window.eth.Contract(abis['ERC20'], addresses[tokenIn])
+  let response = await contract.methods.approve(spender, amount).send({
+    from: user_address
+  })
+  return response
+}
 
 const Supply = ({ account, web3, pbrBalance, handlePurchasePBR }) => {
   const [etherAmount, setEtherAmount] = useState('');
@@ -9,7 +21,7 @@ const Supply = ({ account, web3, pbrBalance, handlePurchasePBR }) => {
   const [purchaseAmount, setPurchaseAmount] = useState('');
 
   useEffect(() => {
-    if (etherAmount && pbrAmount && parseFloat(pbrAmount) > 0 && parseFloat(pbrAmount) <= pbrBalance) {
+    if (etherAmount && pbrAmount ) {
       calculatePalcoinAndDays();
     } else {
       setPalcoinAmount('NAN');
@@ -18,10 +30,12 @@ const Supply = ({ account, web3, pbrBalance, handlePurchasePBR }) => {
   }, [etherAmount, pbrAmount]);
 
   const calculatePalcoinAndDays = async () => {
-    // Fetch palcoinAmount and borrowDays from the blockchain
-    // This is a placeholder function. Replace with actual logic.
-    const palcoinAmountFromChain = (parseFloat(etherAmount) * 10).toFixed(2); // Example conversion
-    const borrowDaysFromChain = (parseFloat(pbrAmount) * 30).toFixed(0); // Example conversion
+
+    var debtContract = new web3.eth.Contract(abis['DEBT_MANAGER'], addresses['DEBT_MANAGER']);
+    let price = await debtContract.methods.getEthUsdPrice().call()
+    price = price/10000
+    const palcoinAmountFromChain = (etherAmount * price * 0.8).toFixed(2); // Example conversion
+    const borrowDaysFromChain = (parseFloat(pbrAmount) * (365 * 10 ** 4) / 1000 / palcoinAmountFromChain).toFixed(0); // Example conversion
 
     setPalcoinAmount(palcoinAmountFromChain);
     setBorrowDays(borrowDaysFromChain);
@@ -38,19 +52,19 @@ const Supply = ({ account, web3, pbrBalance, handlePurchasePBR }) => {
       return;
     }
 
-    // Implement the logic to supply Ether and PBR here
-    // Replace with actual contract addresses and ABI
-    const palcoinAddress = '0xYourPalcoinContractAddress';
-    const palcoinAbi = [
-      // Add necessary ABI details for supplying function
-    ];
-
-    const palcoinContract = new web3.eth.Contract(palcoinAbi, palcoinAddress);
-
     try {
-      const amountInWei = web3.utils.toWei(etherAmount, 'ether');
-      // Add your supply function call here
-      // await palcoinContract.methods.supply(amountInWei, pbrAmount).send({ from: account });
+
+      var pbrAmountInWei = BN.from(pbrAmount).mul(BN.from('1000000000000000000'))
+      var etherAmountInWei = BN.from(etherAmount).mul(BN.from('1000000000000000000'))
+      var palcoinAmountInWei = BN.from(etherAmount).mul(BN.from('1000000000000000000'))
+      var debtContract = new web3.eth.Contract(abis['DEBT_MANAGER'], addresses['DEBT_MANAGER']);
+
+      await approve(web3, 'PBR', pbrAmountInWei, account, addresses['THREE_AMM'])
+      const response = await debtContract.methods
+        .borrow(0, palcoinAmountInWei, pbrAmountInWei)
+        .send({ from: account, 
+                value: etherAmountInWei});
+      console.log(response)
       alert('Supply transaction successful');
     } catch (error) {
       console.error('Supply transaction failed:', error);
